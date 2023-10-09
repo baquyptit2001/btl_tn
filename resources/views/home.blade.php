@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @php($title = 'Home')
 @section('title', $title)
+@section('active', 'home')
 
 @section('content')
 
