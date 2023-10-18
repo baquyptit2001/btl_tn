@@ -73,4 +73,9 @@ class Category extends Model
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = str_slug($value);
     }
+
+    public function getStatusAttribute()
+    {
+        return $this->is_published ? 'Published' : 'Unpublished';
+    }
 }

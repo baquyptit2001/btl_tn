@@ -29,7 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
         Route::get('/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('admin.categories.show');
         Route::get('/{category}/edit', [\App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('admin.categories.edit');
         Route::put('/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('admin.categories.update');
-        Route::delete('/{category}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+        Route::get('/{category}/delete', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('admin.categories.destroy');
     });
     Route::group(['prefix' => 'posts'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\PostController::class, 'index'])->name('admin.posts.index');
@@ -40,6 +40,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin']], functi
         Route::put('/{post}', [\App\Http\Controllers\Admin\PostController::class, 'update'])->name('admin.posts.update');
         Route::delete('/{post}', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('admin.posts.destroy');
     });
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+\UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 Auth::routes();

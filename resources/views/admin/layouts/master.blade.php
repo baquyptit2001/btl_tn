@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{asset("plugins/daterangepicker/daterangepicker.css")}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset("plugins/summernote/summernote-bs4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css")}}">
     <script src="https://cdn.tiny.cloud/1/dc1a5dwmoyfr7ooyz9d0u6o7y95tbv33bljwpym4iy2s1ssa/tinymce/6/tinymce.min.js"
             referrerpolicy="origin"></script>
 </head>
@@ -94,6 +97,18 @@
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
+<script src="{{asset("plugins/datatables/jquery.dataTables.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-buttons/js/dataTables.buttons.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-buttons/js/buttons.bootstrap4.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-buttons/js/buttons.html5.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-buttons/js/buttons.print.min.js")}}"></script>
+<script src="{{asset("plugins/datatables-buttons/js/buttons.colVis.min.js")}}"></script>
+<script src="{{asset("plugins/jszip/jszip.min.js")}}"></script>
+<script src="{{asset("plugins/pdfmake/pdfmake.min.js")}}"></script>
+<script src="{{asset("plugins/pdfmake/vfs_fonts.js")}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset("plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 <!-- ChartJS -->

@@ -8,14 +8,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $categories = Category::query()
-            ->search($request->search)
-            ->sort($request->sort)
-            ->paginate(10);
+        $categories = Category::all();
 
-        return view('admin.categories.index', [
+        return view('admin.pages.categories.index', [
             'categories' => $categories,
         ]);
     }
@@ -34,11 +31,8 @@ class CategoryController extends Controller
 
         Category::create($request->all());
 
-//        return redirect()
-//            ->route('admin.categories.index')
-//            ->with('success', 'Category created successfully.');
         return redirect()
-            ->back()
+            ->route('admin.categories.index')
             ->with('success', 'Category created successfully.');
     }
 
@@ -51,7 +45,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', [
+        return view('admin.pages.categories.edit', [
             'category' => $category,
         ]);
     }
@@ -60,8 +54,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'is_published' => 'required|boolean',
+            'description' => 'nullable|string'
         ]);
 
         $category->update($request->all());
@@ -76,8 +69,7 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()
-            ->route('admin.categories.index')
-            ->with('success', 'Category deleted successfully.');
+            ->back();
     }
 
     public function publish(Category $category)
