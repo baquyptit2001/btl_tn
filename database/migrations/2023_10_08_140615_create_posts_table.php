@@ -18,7 +18,7 @@ return new class extends Migration
                 ->unique();
             $table->text('content');
             $table->boolean('is_published')
-                ->default(false);
+                ->default(true);
             $table->unsignedBigInteger('category_id');
             $table->string("image")
                 ->nullable();

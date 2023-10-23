@@ -22,6 +22,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $post_ids = \App\Models\HomePost::query()
+            ->orderBy('order')
+            ->pluck('post_id')
+            ->toArray();
+        $posts = \App\Models\Post::query()
+            ->whereIn('posts.id', $post_ids)
+            ->join('home_posts', 'posts.id', '=', 'home_posts.post_id')
+            ->orderBy('home_posts.order')
+            ->get();
+        return view('home', compact('posts'));
     }
 }

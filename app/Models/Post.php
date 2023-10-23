@@ -84,4 +84,20 @@ class Post extends Model
     {
         return $filters->applyDesc($query, $filter);
     }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = str_slug($value);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . $this->image);
+    }
+
+    public function getReleaseDateAttribute()
+    {
+        return $this->created_at->format('F. j, Y');
+    }
 }

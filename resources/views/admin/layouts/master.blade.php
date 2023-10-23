@@ -29,8 +29,12 @@
     <link rel="stylesheet" href="{{asset("plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
     <link rel="stylesheet" href="{{asset("plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
     <link rel="stylesheet" href="{{asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/jquery-ui/jquery-ui.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/select2/css/select2.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
     <script src="https://cdn.tiny.cloud/1/dc1a5dwmoyfr7ooyz9d0u6o7y95tbv33bljwpym4iy2s1ssa/tinymce/6/tinymce.min.js"
             referrerpolicy="origin"></script>
+    @yield("css")
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -98,6 +102,7 @@
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <script src="{{asset("plugins/datatables/jquery.dataTables.min.js")}}"></script>
+<script src="{{asset("plugins/select2/js/select2.full.min.js")}}"></script>
 <script src="{{asset("plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
 <script src="{{asset("plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
 <script src="{{asset("plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
@@ -129,12 +134,14 @@
 <script src="{{asset("plugins/summernote/summernote-bs4.min.js")}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset("plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")}}"></script>
+<script src="{{asset("plugins/bs-custom-file-input/bs-custom-file-input.min.js")}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset("dist/js/adminlte.js")}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset("dist/js/demo.js")}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset("dist/js/pages/dashboard.js")}}"></script>
+{{--include app.js file--}}
 @yield("js")
 </body>
 </html>

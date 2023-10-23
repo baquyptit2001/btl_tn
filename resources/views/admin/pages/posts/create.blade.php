@@ -16,20 +16,35 @@
                           placeholder="Enter Description"></textarea>
             </div>
             <div class="form-group">
+                <label for="exampleSelectBorder">Category</label>
+                <select class="custom-select form-control-border" id="exampleSelectBorder" name="category_id">
+                    <option>-- Select Category --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputFile">Thumbnail</label>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <input type="file" class="custom-file-input" id="exampleInputFile"
+                               onchange="$('#thumbnail').attr('src', window.URL.createObjectURL(this.files[0]))"
+                               name="image">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
                     <div class="input-group-append">
                         <span class="input-group-text">Upload</span>
                     </div>
                 </div>
+
+                <img id="thumbnail" style="margin-top:15px;max-height:100px;"
+                     src="{{ asset("assets/images/preview.jpeg") }}" alt="">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Content</label>
-                <textarea name="content" class="form-control" id="content" placeholder="Enter Content"></textarea>
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" id="content"
+                          placeholder="Enter Content"></textarea>
             </div>
         </div>
         <!-- /.card-body -->
@@ -66,6 +81,10 @@
                 });
             },
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+        });
+
+        $(function () {
+            bsCustomFileInput.init();
         });
     </script>
 @endsection
