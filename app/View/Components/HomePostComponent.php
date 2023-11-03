@@ -12,9 +12,10 @@ class HomePostComponent extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(Post $post)
+    public function __construct(Post $post, $isHome = true)
     {
         $this->post = $post;
+        $this->isHome = $isHome;
     }
 
     /**
@@ -26,6 +27,9 @@ class HomePostComponent extends Component
             'post' => $this->post
         );
         $componentView = $this->post->order % 2 == 1 ? 'components.home-post-component' : 'components.home-post-dark-component';
+        if (!$this->isHome) {
+            $componentView = 'components.home-post-component';
+        }
         return view($componentView, $viewData);
     }
 }

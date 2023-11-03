@@ -5,7 +5,7 @@
             <a href="#"><span class="fa fa-user mr-2"></span>{{ strtoupper($post->user->role) }}</a>
             <a href="#" class="meta-chat"><span class="fa fa-comment mr-2"></span> 3</a>
         </p>
-        <h2 class="mb-4"><a href="blog-single.html">{{ $post->title }}</a></h2>
+        <h2 class="mb-4"><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></h2>
         <div class="icon d-flex align-items-center">
             <div class="img" style="background-image: url({{asset("assets/images/person_1.jpg")}});"></div>
             <div class="position pl-3">

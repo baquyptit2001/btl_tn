@@ -48,14 +48,12 @@
                     <h2 class="ftco-heading-2">Have a Questions?</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            <li><span class="icon fa fa-map marker"></span><span class="text">Km10, Đường Nguyễn Trãi, Q.Hà Đông, Hà Nội</span>
                             </li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span
-                                        class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
-                                        class="text"><span
-                                            class="__cf_email__"
-                                            data-cfemail="b7ded9d1d8f7ced8c2c5d3d8dad6ded999d4d8da">[email&#160;protected]</span></span></a>
+                            <li><a href="tel:+84973043445"><span class="icon fa fa-phone"></span><span
+                                        class="text">+84 973 043 445</span></a></li>
+                            <li><a href="mailto:quynb201@gmail.com"><span class="icon fa fa-paper-plane pr-4"></span><span
+                                        class="text">quynb201@gmail.com</span></a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +66,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="mb-0" style="color: rgba(255,255,255,.5);">Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script>
+                        <script>document.write(new Date().getFullYear().toString());</script>
                     </p>
                 </div>
             </div>

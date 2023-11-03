@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['web'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
 
 Route::group(['prefix' => 'contact'], function () {
     Route::get('/', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact');
@@ -56,3 +59,6 @@ Auth::routes();
 
 Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
+Route::get('/post/{post}', [\App\Http\Controllers\Client\PostController::class, 'show'])->name('posts.show');
+
+Route::post('/comment/save', [\App\Http\Controllers\Client\CommentController::class, 'save'])->name('comments.save')->middleware('auth');

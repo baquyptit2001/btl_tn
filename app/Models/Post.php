@@ -34,6 +34,16 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function views()
+    {
+        return $this->hasMany(PostView::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id')->whereNull('parent_id');
+    }
+
     public function scopePublished($query)
     {
         return $query->where('is_published', true);
@@ -94,6 +104,16 @@ class Post extends Model
     public function getImageUrlAttribute()
     {
         return asset('storage/' . $this->image);
+    }
+
+    public function getViewCountAttribute()
+    {
+        return $this->views->count();
+    }
+
+    public function getCommentCountAttribute()
+    {
+        return $this->comments->count();
     }
 
     public function getReleaseDateAttribute()

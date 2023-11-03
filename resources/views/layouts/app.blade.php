@@ -64,6 +64,7 @@
                 ["complete", "interactive"].includes(b.readyState) ? zaraz.init() : a.addEventListener("DOMContentLoaded", zaraz.init)
             }(w, d, "zarazData", "script");
         })(window, document);</script>
+    @yield('css')
 </head>
 <body>
 @include('layouts.components.header')
@@ -107,6 +108,7 @@
         $(`li[nav-name=${active}]`).addClass('active');
     });
 </script>
+@yield('js')
 </body>
 
 <!-- Mirrored from preview.colorlib.com/theme/moose/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Oct 2023 08:02:34 GMT -->
