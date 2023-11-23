@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->role === ROLE_ADMIN or $this->role === ROLE_MOD;
     }
+
+    public function getLastMessageAttribute()
+    {
+        return Chat::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->latest()->first();
+    }
+
+    public function getChatAttribute()
+    {
+        return Chat::where('sender_id', $this->id)->orWhere('receiver_id', $this->id)->orderBy('created_at', 'desc')->get()->reverse();
+    }
 }

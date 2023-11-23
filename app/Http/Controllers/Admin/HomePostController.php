@@ -36,6 +36,14 @@ class HomePostController extends Controller
     public function destroy(HomePost $homePost)
     {
         $homePost->delete();
+        $homePosts = HomePost::query()
+            ->orderBy('order')
+            ->get();
+        $order = 1;
+        foreach ($homePosts as $homePost) {
+            $homePost->order = $order++;
+            $homePost->save();
+        }
         return redirect()->back();
     }
 

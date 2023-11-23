@@ -99,6 +99,14 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.statistic.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            Statistics
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>

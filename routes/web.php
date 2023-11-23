@@ -49,6 +49,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'as' =>
         Route::get('/delete/{homePost}', [\App\Http\Controllers\Admin\HomePostController::class, 'destroy'])->name('destroy');
         Route::post('/update-order', [\App\Http\Controllers\Admin\HomePostController::class, 'updateOrder'])->name('update-order');
     });
+    Route::group(['prefix' => 'statistic', 'as' => 'statistic.'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\StatisticController::class, 'index'])->name('index');
+    });
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
@@ -62,3 +65,9 @@ Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout
 Route::get('/post/{post}', [\App\Http\Controllers\Client\PostController::class, 'show'])->name('posts.show');
 
 Route::post('/comment/save', [\App\Http\Controllers\Client\CommentController::class, 'save'])->name('comments.save')->middleware('auth');
+
+Route::group(['prefix' => 'chat', 'middleware' => ['auth'], 'as' => 'chat.'], function () {
+    Route::get('/', [\App\Http\Controllers\Client\ChatController::class, 'index'])->name('index')->middleware('is_admin');
+    Route::get('/show/{user?}', [\App\Http\Controllers\Client\ChatController::class, 'show'])->name('show');
+    Route::post('/{user}', [\App\Http\Controllers\Client\ChatController::class, 'send'])->name('send');
+});

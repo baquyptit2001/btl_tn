@@ -65,11 +65,51 @@
             }(w, d, "zarazData", "script");
         })(window, document);</script>
     @yield('css')
+    <style>
+        .message-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .message-box a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .message-box a:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .message-box a i {
+            font-size: 20px;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 @include('layouts.components.header')
 @yield('content')
 @include('layouts.components.footer')
+<div class="message-box">
+    @php
+    $chatRoute = "chat.show";
+    if (auth()->check() && auth()->user()->isAdmin()) {
+        $chatRoute = "chat.index";
+    }
+    @endphp
+    <a href="{{ route($chatRoute) }}" class="back-to-top"><i class="fa fa-comments" aria-hidden="true"></i>
+    </a>
+</div>
 <script src="{{asset("assets/js/jquery.min.js")}}"></script>
 <script src="{{asset("assets/js/jquery-migrate-3.0.1.min.js")}}"></script>
 <script src="{{asset("assets/js/popper.min.js")}}"></script>
@@ -108,6 +148,7 @@
         $(`li[nav-name=${active}]`).addClass('active');
     });
 </script>
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 @yield('js')
 </body>
 
