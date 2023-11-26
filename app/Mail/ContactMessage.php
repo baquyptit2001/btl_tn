@@ -15,6 +15,7 @@ class ContactMessage extends Mailable
 
     public mixed $message;
     public mixed $content;
+    public mixed $name;
 
     /**
      * Create a new message instance.
@@ -23,6 +24,7 @@ class ContactMessage extends Mailable
     {
         $this->message = $message;
         $this->content = $message['message'];
+        $this->name = $this->message['name'];
     }
 
     /**

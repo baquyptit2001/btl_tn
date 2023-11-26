@@ -8,8 +8,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" nav-name="home"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Articles</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{{ route('posts.list') }}" class="nav-link">Articles</a></li>
                 <li class="nav-item" nav-name="contact"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
                 @auth()
                     <li class="nav-item dropdown d-flex">

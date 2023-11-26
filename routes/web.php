@@ -63,6 +63,7 @@ Auth::routes();
 Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::get('/post/{post}', [\App\Http\Controllers\Client\PostController::class, 'show'])->name('posts.show');
+Route::get('/post', [\App\Http\Controllers\Client\PostController::class, 'list'])->name('posts.list');
 
 Route::post('/comment/save', [\App\Http\Controllers\Client\CommentController::class, 'save'])->name('comments.save')->middleware('auth');
 

@@ -19,4 +19,10 @@ class PostController extends Controller
         ]);
         return view('pages.post', compact('post'));
     }
+
+    public function list()
+    {
+        $posts = Post::all();
+        return view('pages.list', compact('posts'));
+    }
 }
