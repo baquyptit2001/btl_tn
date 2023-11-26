@@ -61,13 +61,13 @@ class SeedDataCommand extends Command
 //            $postView->created_at = now()->subDays(rand(0, 30));
 //            $postView->save();
 //        }
-        $postViews = \App\Models\PostView::all();
-        foreach ($postViews as $postView) {
-            if ($postView->user_id == 0) {
-                $postView->user_id = null;
-                $postView->save();
-            }
-        }
+//        $postViews = \App\Models\PostView::all();
+//        foreach ($postViews as $postView) {
+//            if ($postView->user_id == 0) {
+//                $postView->user_id = null;
+//                $postView->save();
+//            }
+//        }
     }
 
     public static function quickRandom($length = 16)

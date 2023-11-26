@@ -14,7 +14,7 @@
                     <h1 class="text-center">Q<span>uy</span>NB</h1>
                     <div class="row pb-md-5">
                         <div class="col-md-8">
-                            <h2>Hello! I'm Giller Moose, I Provide Newest News Update About Digital</h2>
+                            <h2>Hello! I'm QuyNB, I Provide Newest News Update About Digital</h2>
                             <p>A small river named Duden flows by their place and supplies it with the necessary
                                 regelialia.
                                 It is a paradisematic country, in which roasted parts of sentences fly into your
@@ -22,9 +22,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="author">
-                                <div class="img" style="background-image: url({{asset("assets/images/person_1.jpg")}});"></div>
+                                <x-avatar name="Quy Ba"/>
                                 <div class="text">
-                                    <h3>Giller Moose</h3>
+                                    <h3>QuyNB</h3>
                                     <p>A small river named Duden flows by their place and supplies it with the necessary
                                         regelialia.</p>
                                 </div>

@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'as' =>
         Route::get('/{post}', [\App\Http\Controllers\Admin\PostController::class, 'show'])->name('show');
         Route::get('/{post}/edit', [\App\Http\Controllers\Admin\PostController::class, 'edit'])->name('edit');
         Route::put('/{post}', [\App\Http\Controllers\Admin\PostController::class, 'update'])->name('update');
-        Route::delete('/{post}', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('destroy');
+        Route::get('/{post}/delete', [\App\Http\Controllers\Admin\PostController::class, 'destroy'])->name('destroy');
     });
     Route::group(['prefix' => 'home-posts', 'as' => 'home-posts.'], function () {
         Route::get('/', [\App\Http\Controllers\Admin\HomePostController::class, 'index'])->name('index');
